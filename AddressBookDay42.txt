@@ -1,0 +1,63 @@
+class AddressBookDay42
+{
+    FirstName;
+    LastName;
+    Address;
+    City;
+    State;
+    Zip;
+    PhoneNumber;
+    Email;
+
+    constructor(...params)
+    {
+        this.FirstName=params[0];
+        this.LastName=params[1];
+        this.Address=params[2];
+        this.City=params[3];
+        this.State=params[4];
+        this.Zip=params[5];
+        this.PhoneNumber=params[6];
+        this.Email=params[7];
+    }
+
+    get FirstName(){
+        return this._FirstName;
+    }
+    set name(FirstName){
+        let FirstName Regex=RegExp('^[A-Z]{1}[a-z]{3,}$');
+        if(FirstNameRegex.test(FirstName))
+        this._FirstName=FirstName;
+        else throw 'Name is incorrect!';
+    }
+    get LastName(){
+        return this._LastName;
+    }
+    set name(LastName){
+        let LastName Regex=RegExp('^[A-Z]{1}[a-z]{3,}$');
+        if(LastNameRegex.test(LastName))
+        this._LastName=LastName;
+        else throw 'Name is incorrect!';
+    }
+    
+    toString(){
+        const options={year:'numeric',month:'long',day:'numeric'};
+        const empDate=this.startdate==undefined?"unfined":
+        this.startdate.toLocaleDateString("en-US",options);
+        return "id ="+this.id +",name="+this.name+",salary="+this.salary +
+        "Gender="+this.gender+",StartDate" +empDate;
+
+    }
+}
+
+let employeePayRolldata = new EmployeePayRolldata(1,"Mark",3000,"male",new Date());
+console.log(employeePayRolldata.toString());
+try{
+    employeePayRolldata.name="John";
+    console.log(employeePayRolldata.toString());
+
+
+}catch(e)
+{
+    console.error(e);
+}
